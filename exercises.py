@@ -36,7 +36,7 @@ def check_voting_eligibility():
     voting_age = 18
     
     try:
-        # Get input and convert to integer immediately
+       
         age = int(input("Please enter your age: "))
 
         if age < 0:
@@ -56,7 +56,7 @@ check_voting_eligibility()
 # Exercise 3: Calculate Dog Years
 
 def calculate_dog_years():
-    # Your control flow logic goes here
+    
     try:
         dog_age = int(input("Input a dog's age: "))
         
@@ -97,3 +97,37 @@ def weather_advice():
 
 # Call the function
 weather_advice()
+
+# Exercise 5: What's the Season?
+
+def determine_season():
+    
+    month = input("Enter the month of the year (Jan - Dec): ").capitalize()
+    
+    try:
+        day = int(input("Enter the day of the month: "))
+        
+        # Check for valid day range
+        if day < 1 or day > 31:
+            print("Invalid day. Please enter a day between 1 and 31.")
+            return
+
+        if (month == 'Dec' and day >= 21) or month in ('Jan', 'Feb') or (month == 'Mar' and day <= 19):
+            season = "Winter"
+        elif (month == 'Mar' and day >= 20) or month in ('Apr', 'May') or (month == 'Jun' and day <= 20):
+            season = "Spring"
+        elif (month == 'Jun' and day >= 21) or month in ('Jul', 'Aug') or (month == 'Sep' and day <= 21):
+            season = "Summer"
+        elif (month == 'Sep' and day >= 22) or month in ('Oct', 'Nov') or (month == 'Dec' and day <= 20):
+            season = "Fall"
+        else:
+            print("Invalid month entry. Please use the three-letter format (e.g., Jan).")
+            return
+
+        print(f"{month} {day} is in {season}.")
+
+    except ValueError:
+        print("Invalid input. Please enter a numeric value for the day.")
+
+# Call the function
+determine_season()
